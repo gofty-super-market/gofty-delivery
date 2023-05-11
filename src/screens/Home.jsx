@@ -3,18 +3,15 @@ import React from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 import Ionicons from '@expo/vector-icons/Ionicons';
 import {
-    Avatar,
+  Avatar,
   Button,
-  Card,
-  Checkbox,
-  Divider,
   FAB,
   Menu,
-  TouchableRipple,
+  Surface,
 } from "react-native-paper";
-import OrderCard from "./components/OrderCard";
+import OrderCard from "../components/OrderCard";
 
-const Home = () => {
+const Home = ({navigation}) => {
   const [visible, setVisible] = React.useState(false);
 
   const openMenu = () => setVisible(true);
@@ -25,7 +22,7 @@ const Home = () => {
     <SafeAreaView className="flex-1 relative bg-gray-100 p-2">
       <View className="flex-row justify-between items-center px-2">
         <Text className="text-5xl py-4 ">Orders</Text>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={()=>navigation.navigate("Profile")}>
             <Avatar.Text size={40} label="TS" />
         </TouchableOpacity>
       </View>
@@ -43,7 +40,7 @@ const Home = () => {
           <Menu
             visible={visible}
             onDismiss={closeMenu}
-            anchor={<Button onPress={openMenu}>Sort by</Button>}
+            anchor={<Button className="bg-white px-2 mb-4" onPress={openMenu}>Sort by</Button>}
           >
             <Menu.Item onPress={() => {}} title="time" />
             <Menu.Item onPress={() => {}} title="near" />
@@ -51,9 +48,11 @@ const Home = () => {
           </Menu>
         </View>
 
-        {new Array(10).fill(" ").map(() => (
-            <OrderCard/>
+        {new Array(10).fill(" ").map((m,key) => (
+            <OrderCard key={key}/>
         ))}
+        <View className="h-24">
+        </View>
       </ScrollView>
     </SafeAreaView>
   );

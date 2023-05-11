@@ -5,7 +5,7 @@ import { Card, Checkbox } from 'react-native-paper'
 const OrderCard = () => {
     const [checked,setChecked]=useState(false)
   return (
-          <Card className="p-2 pl-3 bg-white m-1">
+          <Card className="p-2 pl-3 bg-gray-50 m-1">
             <TouchableOpacity>
 
             <View className="flex-row">
@@ -13,7 +13,7 @@ const OrderCard = () => {
                 <Text className="text-2xl">#40 </Text>
                 <Text>name of client | 0689978685 </Text>
                 <Text>marrakech sidimousa harakat</Text>
-                  <Text className="px-1 mt-1 rounded-md bg-green-100">
+                  <Text className="px-1 mt-1 rounded-md bg-[#66339922]">
                     8 items
                   </Text>
               </View>
