@@ -1,13 +1,9 @@
 import { View, Text, TouchableOpacity, ScrollView } from 'react-native'
 import React, { useState } from 'react'
-import { Button, Card, Checkbox, Menu } from 'react-native-paper'
+import { Button, Card } from 'react-native-paper'
 
 const OrderCardAssigned = () => {
-    const [checked,setChecked]=useState(false)
-
-    const [visible, setVisible] = React.useState(false);
-    const openMenu = () => setVisible(true);
-    const closeMenu = () => setVisible(false);
+  const [visible, setVisible] = React.useState(false);
 
   return (
         <>

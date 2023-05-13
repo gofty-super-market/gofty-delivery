@@ -3,6 +3,7 @@ import React from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import { Avatar } from 'react-native-paper'
 import OrderCardAssigned from '../components/OrderCardAssigned'
+import Ionicons from '@expo/vector-icons/Ionicons';
 
 const Profile = () => {
   return (
@@ -17,11 +18,13 @@ const Profile = () => {
         </View>
             <View>
 
-            <Text className="text-xl py-2 px-2" >Assigned Orders</Text>
+            <Text className="text-xl py-2 pt-4 px-2" >Assigned Orders</Text>
             <View className="h-4"></View>
             <OrderCardAssigned/>
             <OrderCardAssigned/>
-                <Text className="text-xl py-2 pt-4 px-2" >Assigned Orders</Text>
+            <Text className="text-xl py-2 px-2" >Delivered Orders 
+            <Ionicons name="arrow-down"></Ionicons>
+            </Text>
             <View className="h-4"></View>
             <OrderCardAssigned/>
             <OrderCardAssigned/>
