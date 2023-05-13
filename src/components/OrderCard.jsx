@@ -1,12 +1,14 @@
 import { View, Text, TouchableOpacity } from 'react-native'
 import React, { useState } from 'react'
 import { Card, Checkbox } from 'react-native-paper'
+import { useNavigation } from '@react-navigation/native'
 
 const OrderCard = () => {
     const [checked,setChecked]=useState(false)
+    const navigate= useNavigation()
   return (
           <Card className="p-2 pl-3 bg-gray-50 m-1">
-            <TouchableOpacity>
+            <TouchableOpacity onPress={()=>navigate.navigate("Order")}>
 
             <View className="flex-row">
               <View className="flex-1 items-start">

@@ -1,11 +1,12 @@
-import { View, Text, ScrollView } from 'react-native'
-import React from 'react'
+import { View, Text, ScrollView, TouchableOpacity } from 'react-native'
+import React, { useState } from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import { Avatar } from 'react-native-paper'
 import OrderCardAssigned from '../components/OrderCardAssigned'
 import Ionicons from '@expo/vector-icons/Ionicons';
 
 const Profile = () => {
+  const [deliveredOrders,setDeliveredOrders]=useState(false)
   return (
     <SafeAreaView className="flex-1 relative bg-gray-100 py-2">
         <ScrollView className="px-2">
@@ -22,13 +23,23 @@ const Profile = () => {
             <View className="h-4"></View>
             <OrderCardAssigned/>
             <OrderCardAssigned/>
-            <Text className="text-xl py-2 px-2" >Delivered Orders 
-            <Ionicons name="arrow-down"></Ionicons>
-            </Text>
-            <View className="h-4"></View>
-            <OrderCardAssigned/>
-            <OrderCardAssigned/>
-            <OrderCardAssigned/>
+            <TouchableOpacity onPress={()=>setDeliveredOrders(p=>!p)} className="flex-row p-2 gap-1 items-center">
+              <Text className="text-xl " >Delivered Orders </Text>
+              {
+                deliveredOrders?
+                  <Ionicons size={20} name="chevron-down-outline"></Ionicons>:
+                  <Ionicons size={20} name="chevron-forward-outline"></Ionicons>
+              }
+            </TouchableOpacity>
+            {
+              deliveredOrders &&
+              <>
+                <View className="h-4"></View>
+                <OrderCardAssigned/>
+                <OrderCardAssigned/>
+                <OrderCardAssigned/>
+              </>
+            }
             </View>
         </ScrollView>
     </SafeAreaView>
